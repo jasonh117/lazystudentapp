@@ -1,0 +1,15 @@
+nav {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: black;
+    color: white;
+}
+
+nav div {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+}
