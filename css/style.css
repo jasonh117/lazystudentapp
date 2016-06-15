@@ -5,11 +5,153 @@ nav {
     left: 0px;
     background-color: black;
     color: white;
+    z-index: 10;
 }
 
 nav div {
     display: inline-block;
-    width: 60px;
-    height: 40px;
+    padding: 20px;
     text-align: center;
+}
+
+body {
+    font-family: Arial;
+    padding-top: 60px;
+}
+
+.preview {
+    position: relative;
+    border: 2px solid black;
+    display: inline-block;
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 3px 0px;
+    font-weight: bold;
+    background-color: #e8e8e8;
+}
+
+.preview_date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.preview img {
+    text-align: center;
+    width: 250px;
+    height: 220px;
+}
+
+.card-tags {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.card-tags ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-tags li {
+    float: left;
+    margin: 1px;
+    padding: 3px;
+    background-color: #2d91b9;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+}
+
+
+
+.card {
+    position: relative;
+    border: 2px solid black;
+    display: inline-block;
+    width: 500px;
+    height: 600px;
+    margin: 5px;
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
+    vertical-align: top;
+}
+
+.card_date {
+    text-align: right;
+    margin: 0 25px 0 0 ;
+    padding: 3px;
+    background-color: #e8e8e8;
+}
+
+.text_content {
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.text_area {
+    resize: none;
+    width: 494px;
+    height: 300px;
+    font-size: 12px;
+}
+
+.thumbnails-container {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.thumbnail {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+}
+
+.download {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 5px;
+    background-color: white;
+}
+
+.upload_button_container {
+    text-align: center;
+}
+
+.upload_button {
+    margin: 5px;
+    padding: 10px 100px;
+}
+
+.buttons_container {
+    text-align: center;
+}
+
+.cancel_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+}
+
+.save_button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px 50px;
+    background-color: white;
 }
