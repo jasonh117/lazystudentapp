@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Lazy Student App</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 
@@ -19,7 +20,33 @@
     </div>
 </nav>
 
-<div class="preview">
+<button id="add_card_btn">+ Add Card</button>
+
+<div class="card hide" id="edit_card">
+    <p class="card_date">Author on mm-dd-YYYY</p>
+    <button class="cancel_button">X</button>
+    <p class="title">
+        <input id="new_card_title" placeholder="put title here..."></input>
+    </p>
+    <div class="card-tags">
+        <ul>
+            <li>Homework</li>
+            <li>Science</li>
+            <li>PE</li>
+        </ul>
+    </div>
+    <div class="text_content_container">
+        <textarea class="text_area" id="new_card_notes" placeholder="put notes here..."></textarea>
+    </div>
+    <div class="buttons_container">
+        <button class="upload_button">UPLOAD FILE</button>
+    </div>
+    <button id="save_button">Save</button>
+</div>
+
+<div id="main_container">
+
+<div class="preview hide">
     <p class="title">title</p>
     <div class="card-tags">
         <ul>
@@ -32,7 +59,7 @@
     <div class="preview_date">mm-dd-yyyy</div>
 </div>
 
-<div class="card">
+<div class="card hide">
     <p class="card_date">Author on mm-dd-YYYY</p>
     <button class="cancel_button">X</button>
     <p class="title">title</p>
@@ -58,317 +85,9 @@
     <button class="download_button">Download</button>
 </div>
 
-<div class="card">
-    <p class="card_date">Author on mm-dd-YYYY</p>
-    <button class="cancel_button">X</button>
-    <p class="title">title</p>
-    <div class="card-tags">
-        <ul>
-            <li>Homework</li>
-            <li>Science</li>
-            <li>PE</li>
-        </ul>
-    </div>
-    <div class="text_content_container">
-        <textarea class="text_area">Text area</textarea>
-    </div>
-    <div class="buttons_container">
-        <button class="upload_button">UPLOAD FILE</button>
-    </div>
-    <button class="save_button">Save</button>
-</div>
-
-<div id="chat_container">
+<div id="chat_container" class="hide">
     <p id="chat_title">Chat</p>
     <div id="chat_middle_container">
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
 
         <div class="chat_message_container">
             <div class="chat_message_info">
@@ -388,6 +107,7 @@
     </div>
 </div>
 
+</div>
 
 <script src="script/javascript.js"></script>
 
