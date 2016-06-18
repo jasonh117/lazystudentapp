@@ -38,29 +38,32 @@ nav div a:visited {
 
 body {
     font-family: Arial;
-    padding-top: 60px;
+    margin: 0;
+    padding-top: 59px;
+    display: flex;
+    flex-direction: row;
+}
+
+#main_container {
+    border: 1px solid black;
+    flex-grow: 1;
 }
 
 #add_card_btn {
     width: 250px;
     height: 300px;
     outline: none;
-    vertical-align: top;
     font-size: 30px;
 }
-
-#main_container {
-    display: none;
-}
-
-
 
 .preview {
     position: relative;
     display: inline-block;
     width: 250px;
     height: 300px;
-    margin: 5px;
+    margin: 7px 3px;
+    vertical-align: top;
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
@@ -113,7 +116,7 @@ body {
 }
 
 .card {
-    position: absolute;
+    position: fixed;
     top: 80px;
     left: 0;
     right: 0;
@@ -124,6 +127,7 @@ body {
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     background-color: #FFF;
+    z-index: 10;
 }
 
 .card_date {
@@ -215,8 +219,6 @@ body {
     right: 0;
     bottom: 0;
     top: 59px;
-    padding: none;
-    margin: none;
     width: 300px;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
@@ -235,11 +237,6 @@ body {
     overflow-y: scroll;
     white-space: nowrap;
     flex-grow: 1;
-    /*position: absolute;
-    bottom: 91px;
-    right: 0;
-    left: 0;
-    top: 58px;*/
     background-color: white;
     box-shadow: 0 0 5px #DDD inset;
     -moz-box-shadow: 0 0 5px #DDD inset;
@@ -265,10 +262,6 @@ body {
 }
 
 #chat_bottom_container {
-    /*position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;*/
     background-color: white;
     border-top: 1px solid #CCC;
     padding: 10px;
@@ -288,5 +281,5 @@ body {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
