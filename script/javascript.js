@@ -42,7 +42,7 @@ $(function() {
         $('#new_card_title')[0].value = null;
         $('#new_card_notes')[0].value = null;
         //editCardContainer.addClass('hide');
-        $("body").append(new_card);
+        $("#main_container").prepend(new_card);
 
         console.log(cards);
     });
