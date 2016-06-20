@@ -1,3 +1,19 @@
+html, body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* Navigation Bar */
+
 nav {
     position: fixed;
     top: 0px;
@@ -6,6 +22,9 @@ nav {
     background-color: black;
     color: white;
     z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 nav div {
@@ -28,36 +47,42 @@ nav div {
 
 }
 
-a:link {
-    text-decoration: none;
+nav div a:link {
+    color: white;
 }
 
 nav div a:visited {
     color: white;
 }
 
-body {
-    font-family: Arial;
-    padding-top: 60px;
+/* Main Container */
+
+#main_container {
+    margin-top: 61px;
+    margin-right: 300px;
+    padding: 0 5px;
 }
+
+#add_card_btn {
+    width: 250px;
+    height: 300px;
+    outline: none;
+    font-size: 30px;
+}
+
+/* Preview Card */
 
 .preview {
     position: relative;
     display: inline-block;
     width: 250px;
     height: 300px;
-    margin: 5px;
+    margin: 7px 3px;
+    vertical-align: top;
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-}
-
-.title {
-    text-align: center;
-    margin: 0;
-    padding: 3px 0px;
-    font-weight: bold;
-    background-color: #e8e8e8;
 }
 
 .preview_date {
@@ -73,6 +98,16 @@ body {
     text-align: center;
     width: 250px;
     height: 220px;
+}
+
+/* Shared Card Properties */
+
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 3px 0px;
+    font-weight: bold;
+    background-color: #e8e8e8;
 }
 
 .card-tags {
@@ -98,19 +133,20 @@ body {
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Edit Card & Normal Card */
 
 .card {
-    position: relative;
-    display: inline-block;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 500px;
     height: 600px;
-    margin: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-    vertical-align: top;
     background-color: #FFF;
+    z-index: 10;
 }
 
 .card_date {
@@ -132,6 +168,16 @@ body {
     color: #666;
 }
 
+.cancel_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    outline: none;
+}
+
+/* Edit Card */
+
 .text_area {
     resize: none;
     padding: 0;
@@ -140,6 +186,25 @@ body {
     border: 0;
     outline: none;
 }
+
+.upload_button {
+    margin: 20px;
+    padding: 10px 100px;
+    outline: none;
+    text-align: center;
+}
+
+#save_button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px 50px;
+    background-color: white;
+    outline: none;
+}
+
+/* Normal Card */
 
 .thumbnails-container {
     overflow-x: scroll;
@@ -163,37 +228,7 @@ body {
     outline: none;
 }
 
-.upload_button_container {
-    text-align: center;
-}
-
-.upload_button {
-    margin: 20px;
-    padding: 10px 100px;
-    outline: none;
-}
-
-.buttons_container {
-    text-align: center;
-}
-
-.cancel_button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: white;
-    outline: none;
-}
-
-.save_button {
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-    margin: 0;
-    padding: 5px 50px;
-    background-color: white;
-    outline: none;
-}
+/* Chat Side Bar */
 
 #chat_container {
     display: flex;
@@ -202,8 +237,6 @@ body {
     right: 0;
     bottom: 0;
     top: 59px;
-    padding: none;
-    margin: none;
     width: 300px;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
@@ -221,12 +254,7 @@ body {
 #chat_middle_container {
     overflow-y: scroll;
     white-space: nowrap;
-    flex-grow: 1;
-    /*position: absolute;
-    bottom: 91px;
-    right: 0;
-    left: 0;
-    top: 58px;*/
+    flex: 1;
     background-color: white;
     box-shadow: 0 0 5px #DDD inset;
     -moz-box-shadow: 0 0 5px #DDD inset;
@@ -235,7 +263,7 @@ body {
 
 .chat_message_container {
     height: 50px;
-    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
     margin: 0;
     padding: 0 10px;
     font-size: 14px;
@@ -252,10 +280,6 @@ body {
 }
 
 #chat_bottom_container {
-    /*position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;*/
     background-color: white;
     border-top: 1px solid #CCC;
     padding: 10px;
