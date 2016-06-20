@@ -21,6 +21,9 @@ nav {
     background-color: black;
     color: white;
     z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 nav div {
@@ -255,7 +258,7 @@ nav div a:visited {
 
 .chat_message_container {
     height: 50px;
-    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
     margin: 0;
     padding: 0 10px;
     font-size: 14px;
