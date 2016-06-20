@@ -1,10 +1,11 @@
-a:link {
-    text-decoration: none;
-}
-
-body {
+html, body {
     font-family: Arial;
     margin: 0;
+    padding: 0;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 .hide {
@@ -44,6 +45,10 @@ nav div {
 
 #user {
 
+}
+
+nav div a:link {
+    color: white;
 }
 
 nav div a:visited {
