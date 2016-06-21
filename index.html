@@ -11,13 +11,11 @@
 <!-- Navigation Bar !-->
 
 <nav id="nav">
-    <div>LSA</div>
-    <div><a href="index.html">Home</a></div>
-    <div><a href="about.html">About</a></div>
-    <div id="nav_right">
-        <div id="searchbar"><input></div>
-        <div id="user">User</div>
-    </div>
+    <a class="nav_left nav_item" href="index.html">LSA</a>
+    <a class="nav_left nav_item" href="index.html">Home</a>
+    <a class="nav_left nav_item" href="about.html">About</a>
+    <div class="nav_right nav_item" id="user">User</div>
+    <input class="nav_right nav_item" id="searchbar">
 </nav>
 
 <!-- Main Container !-->
@@ -39,16 +37,14 @@
     <div class="card-tags">
         <ul>
             <div id="temp_tags"></div>
-            <li>
-                <input id="new_tag" placeholder="put tag here...">
-            </li>
+            <li><input id="new_tag" placeholder="put tag here..."></li>
         </ul>
     </div>
     <div class="text_content_container">
         <textarea class="text_area" id="new_card_notes" placeholder="put notes here..."></textarea>
     </div>
     <button class="upload_button">UPLOAD FILE</button>
-    <button id="save_button">Save</button>
+    <button class="save_button">Save</button>
 </div>
 
 <!-- Normal Card !-->
@@ -57,19 +53,15 @@
     <p class="card_date">Author on mm-dd-YYYY</p>
     <button class="cancel_button">X</button>
     <p class="title"></p>
-    <div class="card-tags">
-        <ul></ul>
-    </div>
-    <p class="text_content_container">
-    </p>
+    <div class="card-tags"><ul></ul></div>
+    <p class="text_content_container"></p>
     <div class="thumbnails-container">
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
-        <div class="thumbnail"><img src="http://dummyimage.com/100x100/87CEFA/fff"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
     </div>
     <button class="download_button">Download</button>
 </div>

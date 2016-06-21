@@ -8,19 +8,19 @@ var cards = [
         id: id++,
         title: "Homework 1",
         tags: ["Science", "Homework"],
-        notes: "Random notes about science homework."
+        notes: "Random notes about science homework.\nMore random notes on second line."
     },
     {
         id: id++,
         title: "Homework 2",
         tags: ["Math", "Homework"],
-        notes: "Random notes about Math homework."
+        notes: "Random notes about Math homework.\nMore random notes on second line."
     },
     {
         id: id++,
         title: "Homework 3",
         tags: ["History", "Homework"],
-        notes: "Random notes about History homework."
+        notes: "Random notes about History homework.\nMore random notes on second line."
     }
 ];
 var tags = [];
@@ -45,7 +45,6 @@ function gen_preview_card(title, mytags) {
     new_card +=
         `</ul>
                 </div>
-                <img src="http://dummyimage.com/250x220/87CEFA/fff">
                 <div class="preview_date">mm-dd-yyyy</div>
             </div>`;
     return $(new_card);
@@ -64,6 +63,7 @@ $(function() {
     // Open Edit Card
 
     $('#add_card_btn').on('click', function() {
+        $('.card').addClass('hide');
         $('#edit_card').removeClass('hide');
     });
 
@@ -75,7 +75,7 @@ $(function() {
 
     // Save the card from the Edit Card
 
-    $('#save_button').on('click', function() {
+    $('.save_button').on('click', function() {
         if ($('#new_card_title')[0].value === "")
             $('#new_card_title')[0].value = "No Title";
 
@@ -141,7 +141,8 @@ $(function() {
         // update normal card with data
 
         card.find('.title')[0].textContent = data.title;
-        card.find('.text_content_container')[0].textContent = data.notes;
+        var notes = data.notes.replace(/\n/g, "<br>");
+        card.find('.text_content_container')[0].innerHTML = notes;
         card.find('.card-tags ul').empty();
         for (var tag in data.tags)
             card.find('.card-tags ul').append($('<li>').text(data.tags[tag]));

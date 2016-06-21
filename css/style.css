@@ -2,6 +2,7 @@ html, body {
     font-family: Arial;
     margin: 0;
     padding: 0;
+    background: #fff url("../img/wood.jpg");
 }
 
 a:link {
@@ -12,6 +13,19 @@ a:link {
     display: none !important;
 }
 
+button {
+    outline: none;
+    color: #666;
+    border: 1px solid #AAA;
+}
+
+button:hover {
+    background: rgba(86, 47, 14, 0.4);
+}
+
+button:active {
+}
+
 /* Navigation Bar */
 
 nav {
@@ -19,7 +33,7 @@ nav {
     top: 0px;
     right: 0px;
     left: 0px;
-    background-color: black;
+    background: rgba(86, 47, 14, 0.4);
     color: white;
     z-index: 10;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -27,40 +41,49 @@ nav {
     -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-nav div {
-    display: inline-block;
-    padding: 20px;
-    text-align: center;
+.nav_left {
+    float: left;
 }
 
-#nav_right {
+.nav_right {
     float: right;
-    padding: 0;
-    margin: 0;
+}
+
+.nav_item {
+    display: inline-block;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+}
+
+.nav_item:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#searchbar:hover {
+    background: rgba(0, 0, 0, 0.2) url("../img/search.png") no-repeat left 12px center;
 }
 
 #searchbar {
-
+    background: url("../img/search.png") no-repeat left 12px center;
+    border: 0;
+    outline: none;
+    padding-left: 40px;
 }
 
 #user {
 
 }
 
-nav div a:link {
-    color: white;
-}
-
-nav div a:visited {
-    color: white;
-}
-
 /* Main Container */
 
 #main_container {
-    margin-top: 61px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 60px;
     margin-right: 300px;
-    padding: 0 5px;
+    padding: 5px;
 }
 
 #add_card_btn {
@@ -68,18 +91,20 @@ nav div a:visited {
     height: 300px;
     outline: none;
     font-size: 30px;
+    background: transparent;
+    border: 0;
+    color: #666;
 }
 
 /* Preview Card */
 
 .preview {
     position: relative;
-    display: inline-block;
     width: 250px;
     height: 300px;
-    margin: 7px 3px;
-    vertical-align: top;
-    background-color: white;
+    margin: 5px;
+    color: #666;
+    background: white url("../img/ricepaper2.png");
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
@@ -102,7 +127,7 @@ nav div a:visited {
     right: 0;
     bottom: 0;
     padding: 5px;
-    background-color: rgba(0,0,0,0.2);
+    background: rgba(86, 47, 14, 0.2);
     color: #FFF;
 }
 
@@ -119,7 +144,6 @@ nav div a:visited {
     margin: 0;
     padding: 3px 0px;
     font-weight: bold;
-    background-color: #e8e8e8;
 }
 
 .card-tags {
@@ -143,7 +167,7 @@ nav div a:visited {
     float: left;
     margin: 1px;
     padding: 5px 7px;
-    background-color: #87CEFA;
+    background: rgba(86, 47, 14, 0.4);
     border-radius: 10px;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -152,7 +176,7 @@ nav div a:visited {
 }
 
 .temp_tag:hover {
-    background-color: #0059b3;
+    background: rgba(86, 47, 14, 0.8);
 }
 
 /* Edit Card & Normal Card */
@@ -164,10 +188,11 @@ nav div a:visited {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 600px;
+    color: #666;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-    background-color: #FFF;
+    background: white url("../img/ricepaper2.png");
     z-index: 10;
 }
 
@@ -175,14 +200,13 @@ nav div a:visited {
     text-align: right;
     margin: 0 25px 0 0 ;
     padding: 1px;
-    background-color: #e8e8e8;
 }
 
 .text_content_container {
     margin: 0;
     padding: 10px;
     height: 300px;
-    background: white;
+    background: transparent;
     border: 1px solid #DDD;
     box-shadow: 0 0 5px #DDD inset;
     -moz-box-shadow: 0 0 5px #DDD inset;
@@ -194,8 +218,7 @@ nav div a:visited {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: white;
-    outline: none;
+    background: white;
 }
 
 /* Edit Card */
@@ -207,23 +230,59 @@ nav div a:visited {
     height: 100%;
     border: 0;
     outline: none;
+    background: transparent;
+    color: #666;
+    font-size: 16px;
 }
 
-.upload_button {
-    margin: 20px;
-    padding: 10px 100px;
+#new_card_title, #new_tag {
+    border: 0;
     outline: none;
+    background: transparent;
+    font-size: 16px;
     text-align: center;
 }
 
-#save_button {
+#new_card_title {
+    color: #666;
+    width: 90%;
+}
+
+#new_tag {
+    color: white;
+    width: 100px;
+}
+
+#new_tag::-webkit-input-placeholder {
+   color: #DDD;
+}
+
+#new_tag:-moz-placeholder {
+   color: #DDD;  
+}
+
+#new_tag::-moz-placeholder {
+   color: #DDD;  
+}
+
+#new_tag:-ms-input-placeholder {  
+   color: #DDD;  
+}
+
+.upload_button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 100px;
+    text-align: center;
+}
+
+.save_button {
     position: absolute;
     right: 25px;
     bottom: 25px;
     margin: 0;
     padding: 5px 50px;
-    background-color: white;
-    outline: none;
+    background: white;
 }
 
 /* Normal Card */
@@ -237,7 +296,7 @@ nav div a:visited {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background-color: gray;
+    background: rgba(86, 47, 14, 0.4);
 }
 
 .download_button {
@@ -246,8 +305,7 @@ nav div a:visited {
     bottom: 25px;
     margin: 0;
     padding: 5px;
-    background-color: white;
-    outline: none;
+    background: white;
 }
 
 /* Chat Side Bar */
@@ -258,17 +316,17 @@ nav div a:visited {
     position: fixed;
     right: 0;
     bottom: 0;
-    top: 59px;
+    top: 60px;
     width: 300px;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
+    color: white;
+    background: rgba(86, 47, 14, 0.4);
+    box-shadow: -2px px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 #chat_title {
     text-align: center;
-    color: white;
-    background-color: #87CEFA;
     margin: 0;
     padding: 20px;
 }
@@ -277,7 +335,6 @@ nav div a:visited {
     overflow-y: scroll;
     white-space: nowrap;
     flex: 1;
-    background-color: white;
     box-shadow: 0 0 5px #DDD inset;
     -moz-box-shadow: 0 0 5px #DDD inset;
     -webkit-box-shadow: 0 0 5px #DDD inset;
@@ -302,7 +359,6 @@ nav div a:visited {
 }
 
 #chat_bottom_container {
-    background-color: white;
     border-top: 1px solid #CCC;
     padding: 10px;
 }
@@ -312,6 +368,8 @@ nav div a:visited {
 }
 
 #chat_text_area {
+    background: transparent;
+    color: white;
     resize: none;
     padding: 0;
     width: 100%;
