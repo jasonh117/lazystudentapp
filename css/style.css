@@ -2,6 +2,9 @@ html, body {
     font-family: Arial;
     margin: 0;
     padding: 0;
+}
+
+body {
     background: #fff url("../img/wood.jpg");
 }
 
