@@ -125,6 +125,11 @@ nav {
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 6px 20px rgba(0, 0, 0, 0.65);
 }
 
+.preview_body {
+    margin: 0;
+    padding: 10px;
+}
+
 .preview_date {
     position: absolute;
     right: 0;

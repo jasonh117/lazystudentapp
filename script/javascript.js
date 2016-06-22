@@ -160,7 +160,7 @@ function gen_preview_card(object) {
     new_card +=
                 `</ul>
             </div>
-            <p>${notes}</p>
+            <p class="preview_body">${notes}</p>
             <div class="preview_date">${object.createdAt.substring(0,10)}</div>
         </div>`;
     return $(new_card);
