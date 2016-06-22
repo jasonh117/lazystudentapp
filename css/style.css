@@ -149,24 +149,24 @@ nav {
     font-weight: bold;
 }
 
-.card-tags {
+.card_tags {
     display: inline-block;
     margin-top: 3px;
 }
 
-.card-tags div {
+.card_tags div {
     display: inline;
     margin: 0;
     padding: 0;
 }
 
-.card-tags ul {
+.card_tags ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.card-tags li {
+.card_tags li {
     float: left;
     margin: 1px;
     padding: 5px 7px;
@@ -289,6 +289,10 @@ nav {
 }
 
 /* Normal Card */
+
+.normal_card .text_content_container {
+    white-space: pre-wrap;
+}
 
 .thumbnails-container {
     overflow-x: scroll;
