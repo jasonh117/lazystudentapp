@@ -28,13 +28,13 @@
 
 <!-- Edit Card !-->
 
-<div class="card hide" id="edit_card">
+<div class="card edit_card hide">
     <p class="card_date">Author on mm-dd-YYYY</p>
     <button class="cancel_button">X</button>
     <p class="title">
         <input id="new_card_title" placeholder="put title here...">
     </p>
-    <div class="card-tags">
+    <div class="card_tags">
         <ul>
             <div id="temp_tags"></div>
             <li><input id="new_tag" placeholder="put tag here..."></li>
@@ -49,11 +49,11 @@
 
 <!-- Normal Card !-->
 
-<div class="card hide" id="normal_card">
+<div class="card normal_card hide">
     <p class="card_date">Author on mm-dd-YYYY</p>
     <button class="cancel_button">X</button>
     <p class="title"></p>
-    <div class="card-tags"><ul></ul></div>
+    <div class="card_tags"><ul></ul></div>
     <p class="text_content_container"></p>
     <div class="thumbnails-container">
         <div class="thumbnail"></div>
@@ -63,6 +63,8 @@
         <div class="thumbnail"></div>
         <div class="thumbnail"></div>
     </div>
+    <button class="delete_button">Delete Card</button>
+    <button class="edit_button">Edit Card</button>
     <button class="download_button">Download</button>
 </div>
 
@@ -110,23 +112,6 @@
         </div>
     </div>
 </div>
-
-<!--
-
-<div class="preview hide">
-    <p class="title">title</p>
-    <div class="card-tags">
-        <ul>
-            <li>Homework</li>
-            <li>Science</li>
-            <li>PE</li>
-        </ul>
-    </div>
-    <img src="http://dummyimage.com/250x220/87CEFA/fff">
-    <div class="preview_date">mm-dd-yyyy</div>
-</div>
-
-!-->
 
 <script src="script/javascript.js"></script>
 
