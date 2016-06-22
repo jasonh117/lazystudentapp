@@ -36,7 +36,7 @@ function send_new_card() {
         type: "POST"
     })
     
-    .done(function (object) {
+    .done(function(object) {
         var new_card = gen_preview_card(addcard(object.data));
         $("#main_container").prepend(new_card);
         reset_card();
@@ -44,11 +44,15 @@ function send_new_card() {
     })
 }
 
-function send_edits(data) {
+function send_edits() {
     $.ajax({
         url: "http://thiman.me:1337/jasonh/" + card_id,
 
-        data: data,
+        data: {
+            title: $('#new_card_title').val(),
+            tags: tags,
+            body: $('#new_card_notes').val()
+        },
 
         traditional: true,
 
@@ -56,7 +60,8 @@ function send_edits(data) {
     })
     
     .done(function(object) {
-        $("#"+card_id).replaceWith(gen_preview_card(addcard(object.data)));
+        var new_card = gen_preview_card(addcard(object.data));
+        $("#"+card_id).replaceWith(new_card);
         reset_card();
         card_id = null;
     })
@@ -75,25 +80,6 @@ function send_delete_card() {
         $("#"+card_id).remove();
         card_id = null;
     })
-}
-
-function get_changed_data(card) {
-    var data = {};
-
-    if ($('#new_card_title').val() != card.title)
-        data.title = $('#new_card_title').val();
-
-    if ($('#new_card_notes').val() != card.body)
-        data.body = $('#new_card_notes').val();
-
-    if (tags.length != card.tags.length)
-        data.tags = tags;
-    else
-        for (var index in tags)
-            if (tags[index] != card.tags[index])
-                data.tags = tags;
-
-    return data;
 }
 
 function addcard(card) {
@@ -123,7 +109,7 @@ function edit_card(data) {
         var tag = $('<li>').addClass("temp_tag").text(data.tags[index]);
         $('#temp_tags').append(tag);
     }
-    $('#new_card_notes').val(data.body)
+    $('#new_card_notes').val(data.body);
     $('#edit_card').removeClass('hide');
 }
 
@@ -193,7 +179,7 @@ $(function() {
         if (card_id == null)
             send_new_card();
         else
-            send_edits(get_changed_data(cards[card_id]));
+            send_edits();
     });
 
     // Add new tags in Edit Card
