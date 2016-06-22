@@ -290,7 +290,7 @@ nav {
 
 /* Normal Card */
 
-.normal_card .text_content_container {
+#normal_card .text_content_container {
     white-space: pre-wrap;
 }
 

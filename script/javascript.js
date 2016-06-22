@@ -4,6 +4,7 @@
 
 var cards = {};
 var tags = [];
+var card_id = null;
 
 function get_server_cards() {
     $.ajax({
@@ -39,12 +40,13 @@ function send_new_card() {
         var new_card = gen_preview_card(addcard(object.data));
         $("#main_container").prepend(new_card);
         reset_card();
+        card_id = null;
     })
 }
 
-function send_edits(data, id) {
+function send_edits(data) {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/" + id,
+        url: "http://thiman.me:1337/jasonh/" + card_id,
 
         data: data,
 
@@ -54,22 +56,24 @@ function send_edits(data, id) {
     })
     
     .done(function(object) {
-        $("#"+id).replaceWith(gen_preview_card(addcard(object.data)));
+        $("#"+card_id).replaceWith(gen_preview_card(addcard(object.data)));
         reset_card();
+        card_id = null;
     })
 }
 
-function send_delete_card(id) {
+function send_delete_card() {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/" + id,
+        url: "http://thiman.me:1337/jasonh/" + card_id,
 
         type: "DELETE"
     })
     
     .done(function() {
         reset_card();
-        delcard(id);
-        $("#"+id).remove();
+        delcard(card_id);
+        $("#"+card_id).remove();
+        card_id = null;
     })
 }
 
@@ -101,19 +105,18 @@ function delcard(id) {
 }
 
 function normal_card(data) {
+    card_id = data._id;
     $('.card_date').text(data.createdAt.substring(0,10));
-    $('.normal_card').attr("id", data._id);
-    $('.normal_card p.title').text(data.title);
-    $('.normal_card .card_tags ul').empty();
+    $('#normal_card .title').text(data.title);
+    $('#normal_card .card_tags ul').empty();
     for (var tag in data.tags)
-        $('.normal_card .card_tags ul').append($('<li>').text(data.tags[tag]));
-    $('.normal_card p.text_content_container').text(data.body);
-    $('.normal_card').removeClass('hide');
+        $('#normal_card .card_tags ul').append($('<li>').text(data.tags[tag]));
+    $('#normal_card .text_content_container').text(data.body);
+    $('#normal_card').removeClass('hide');
 }
 
 function edit_card(data) {
     $('.card_date').text(data.createdAt.substring(0,10));
-    $('.edit_card').attr("id", data._id);
     $('#new_card_title').val(data.title);
     for (var index in data.tags) {
         tags.push(data.tags[index]);
@@ -121,7 +124,7 @@ function edit_card(data) {
         $('#temp_tags').append(tag);
     }
     $('#new_card_notes').val(data.body)
-    $('.edit_card').removeClass('hide');
+    $('#edit_card').removeClass('hide');
 }
 
 function reset_card() {
@@ -132,14 +135,12 @@ function reset_card() {
     $('.card_date').empty();
     
     // Reset Normal Card
-    $('.normal_card').removeAttr("id");
-    $('.normal_card p.title').empty();
-    $('.normal_card .card_tags ul').empty();
-    $('.normal_card p.text_content_container').empty();
-    $('.normal_card .thumbnails-container').empty();
+    $('#normal_card .title').empty();
+    $('#normal_card .card_tags ul').empty();
+    $('#normal_card .text_content_container').empty();
+    $('#normal_card .thumbnails-container').empty();
     
     // Reset Edit Card
-    $('.edit_card').removeAttr("id");
     $('#new_card_title').val('');
     $('#new_card_notes').val('');
     $('#new_tag').val('');
@@ -171,13 +172,15 @@ $(function() {
     // Open Edit Card
 
     $('#add_card_btn').on('click', function() {
+        card_id = null;
         reset_card();
-        $('.edit_card').removeClass('hide');
+        $('#edit_card').removeClass('hide');
     });
 
     // Cancel the Edit or Normal Card
 
     $('.cancel_button').on('click', function() {
+        card_id = null;
         reset_card();
     });
 
@@ -186,12 +189,11 @@ $(function() {
     $('.save_button').on('click', function() {
         if ($('#new_card_title').val() == "")
             $('#new_card_title').val("No Title");
-        var id = $('.edit_card').attr("id");
 
-        if (id == undefined)
+        if (card_id == null)
             send_new_card();
         else
-            send_edits(get_changed_data(cards[id]), id);
+            send_edits(get_changed_data(cards[card_id]));
     });
 
     // Add new tags in Edit Card
@@ -227,18 +229,16 @@ $(function() {
     // Deleting Card from Normal Card
 
     $('.delete_button').on('click', function() {
-        var id = $('.normal_card').attr("id");
-        send_delete_card(id);
+        send_delete_card();
     });
 
     // Edit Card from Normal Card
 
     $('.edit_button').on('click', function() {
-        var id = $('.normal_card').attr("id");
         reset_card();
         
         // show Edit Card with data
-        edit_card(cards[id]);
+        edit_card(cards[card_id]);
     });
 
 });
