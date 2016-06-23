@@ -8,7 +8,7 @@ var card_id = null;
 
 function get_server_cards() {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/",
+        url: "http://localhost:3000/",
         type: "GET"
     })
     
@@ -23,7 +23,7 @@ function get_server_cards() {
 
 function send_new_card() {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/",
+        url: "http://localhost:3000/",
 
         data: {
             title: $('#new_card_title').val(),
@@ -46,7 +46,7 @@ function send_new_card() {
 
 function send_edits() {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/" + card_id,
+        url: "http://localhost:3000/" + card_id,
 
         data: {
             title: $('#new_card_title').val(),
@@ -69,7 +69,7 @@ function send_edits() {
 
 function send_delete_card() {
     $.ajax({
-        url: "http://thiman.me:1337/jasonh/" + card_id,
+        url: "http://localhost:3000/" + card_id,
 
         type: "DELETE"
     })
